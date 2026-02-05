@@ -1,0 +1,15 @@
+Case File: The Neon Samurai
+Location: Tokyo, Japan
+Investigator: Mr. Bawn
+
+In the neon-lit district of Shinjuku, a rare katana from the Edo period disappeared from a sealed display case in the museum. The security cameras showed nothing but static for exactly ten seconds.
+
+Mr. Bawn examined the glass case. No fingerprints. No scratches. He turned his attention to the museum's server room. "A cyber-heist," he declared.
+
+The thief hadn't physically broken in. They had hacked the museum's environmental control system, raising the humidity inside the case rapidly to warp the seal, then used a powerful electromagnet to slide the sword out onto a cleaning robot that was also hacked.
+
+Bawn tracked the hacker's signature to a gaming cafe in Akihabara. He challenged the young hacker to a game of Go. "If I win, you return the sword." Bawn placed his stone. Checkmate in five moves.
+
+The sword was returned before dawn.
+
+Case Closed.

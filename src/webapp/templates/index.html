@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mr. Bawn Mysteries</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .chat-box { border: 1px solid #ccc; padding: 20px; margin-top: 20px; border-radius: 5px; }
+        .question { font-weight: bold; color: #333; }
+        .answer { margin-top: 10px; color: #0056b3; }
+        .context { margin-top: 10px; font-size: 0.9em; color: #666; white-space: pre-wrap; background: #f9f9f9; padding: 10px; }
+        input[type="text"] { width: 70%; padding: 10px; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Mr. Bawn's Case Files</h1>
+    <form action="/chat" method="post">
+        <input type="text" name="question" placeholder="Ask about a mystery (e.g., Who stole the diamond in Tokyo?)" value="{{ question }}" required>
+        <button type="submit">Ask Detective</button>
+    </form>
+
+    {% if answer %}
+    <div class="chat-box">
+        <div class="question">Q: {{ question }}</div>
+        <div class="answer">A: {{ answer }}</div>
+        {% if context %}
+        <details>
+            <summary>View Retrieved Context</summary>
+            <div class="context">{{ context }}</div>
+        </details>
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+</html>

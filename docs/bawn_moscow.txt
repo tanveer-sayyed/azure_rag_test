@@ -1,0 +1,14 @@
+Case File: The Red Square Cipher
+Location: Moscow, Russia
+Investigator: Mr. Bawn
+
+During the depths of a Russian winter, the famous Fabergé "Winter Egg" disappeared from a heavily guarded vault in the Kremlin. The steel door was frozen shut, sealed with ice from the inside.
+
+Mr. Bawn inspected the vault. "Thermites?" asked the guard.
+"Liquid nitrogen," Bawn replied, scraping a sample of the ice. "Pumped through the keyhole."
+
+He walked to the Moskva River, frozen solid. He found a set of skate tracks that ended abruptly at a hole in the ice. A diver was later recovered, shivering but holding the egg.
+
+The thief had used an underwater drone to navigate the sewer system, drill up into the vault floor (which they had weakened with acid for weeks), and escape into the river. "Ingenious," Bawn admitted, "but he forgot that batteries drain faster in the cold."
+
+Case Closed.
