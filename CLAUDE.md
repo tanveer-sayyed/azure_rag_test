@@ -13,7 +13,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-This is a "Mr. Bawn" Mystery RAG application deployed on Azure at toy scale. The system has two independent deployable units:
+This is a "Mr. Bawn" Mystery RAG application. The system has two independent deployable units running on **local services** (Ollama + Weaviate + sentence-transformers), deployable to Azure Web App with the same stack as sidecars.
+
+### Local service stack
+
+| Role | Service | Notes |
+|---|---|---|
+| LLM | Ollama (`llama3.1:8b`) | Local; swap model via `OLLAMA_MODEL` env var |
+| Embeddings | sentence-transformers `all-MiniLM-L6-v2` | 384-dim, runs in-process |
+| Vector DB | Weaviate (Docker) | Collection `BawnMystery`, no built-in vectorizer |
 
 ### 1. Ingestion Pipeline (`src/ingestion/`)
 
@@ -22,11 +30,11 @@ Azure Function triggered by Event Grid on `Microsoft.Storage.BlobCreated` events
 ```
 Azure Blob Storage → Event Grid → Azure Function (IngestBlob) → DocumentIndexer
                                                                        ↓
-                                                              Azure AI Search
-                                                          (index: bawn-mystery-index)
+                                                                  Weaviate
+                                                          (collection: BawnMystery)
 ```
 
-`function_app.py` handles the Event Grid trigger; `DocumentIndexer` in `indexer.py` downloads the blob, splits on `\n\n`, generates embeddings via `text-embedding-ada-002`, and batch-uploads to the vector index.
+`function_app.py` handles the Event Grid trigger; `DocumentIndexer` in `indexer.py` downloads the blob from Azure Blob Storage (still uses `DefaultAzureCredential`), splits on `\n\n`, generates embeddings via sentence-transformers, and batch-uploads to Weaviate using deterministic UUIDs for idempotent re-ingestion.
 
 ### 2. Web App (`src/webapp/`)
 
@@ -34,22 +42,28 @@ FastAPI app serving a chat UI:
 
 ```
 User → POST /chat → RagEngine.ask_question()
-                         ├── embed question (text-embedding-ada-002)
-                         ├── hybrid search Azure AI Search (top-3 chunks)
-                         └── Azure OpenAI chat completion (gpt-35-turbo)
+                         ├── encode question (sentence-transformers all-MiniLM-L6-v2)
+                         ├── near-vector search Weaviate (top-3, distance < 0.5)
+                         └── Ollama chat completion (llama3.1:8b)
 ```
 
-`app.py` is the FastAPI entrypoint; `rag_engine.py` owns all Azure client logic.
+`app.py` is the FastAPI entrypoint; `rag_engine.py` owns all service client logic.
 
 ### Identity model
 
-All Azure service access uses `DefaultAzureCredential` (Managed Identity in production — no connection strings or API keys in code). Required environment variables:
+Azure Blob Storage access uses `DefaultAzureCredential` (Managed Identity in production). Weaviate and Ollama are accessed by URL — no credentials required for local/sidecar deployments.
 
-| Variable | Used by |
-|---|---|
-| `AZURE_SEARCH_ENDPOINT` | Both webapp and ingestion |
-| `AZURE_OPENAI_ENDPOINT` | Both webapp and ingestion |
-| `STORAGE_ACCOUNT_NAME` | Ingestion only |
+Required environment variables:
+
+| Variable | Used by | Default |
+|---|---|---|
+| `WEAVIATE_URL` | Both webapp and ingestion | `http://localhost:8080` |
+| `OLLAMA_MODEL` | Webapp only | `llama3.1:8b` |
+| `STORAGE_ACCOUNT_NAME` | Ingestion only | — |
+
+### Azure Web App deployment note
+
+Deploy Weaviate and Ollama as sidecar containers alongside the FastAPI app on the same Azure Web App (multi-container) or Azure Container Apps. Set `WEAVIATE_URL` and `OLLAMA_MODEL` in Application Settings. The ingestion Function App needs `WEAVIATE_URL` and `STORAGE_ACCOUNT_NAME` in its configuration.
 
 ### 3. Eval Suite (`ai_evals/`)
 
@@ -67,13 +81,28 @@ The three files to edit when adapting the suite:
 
 All `ai_evals/` commands must be run from the `ai_evals/` directory.
 
+### Prerequisites (local services)
+```bash
+# Weaviate
+docker run -d -p 8080:8080 -p 50051:50051 \
+  -e QUERY_DEFAULTS_VECTORIZER=none \
+  cr.weaviate.io/semitechnologies/weaviate:latest
+
+# Ollama (if not already running)
+ollama serve
+ollama pull llama3.1:8b
+
+# Webapp deps
+pip install -r src/webapp/requirements.txt
+```
+
 ### Web app (local)
 ```bash
 cd src/webapp && uvicorn app:app --reload
 ```
 
 ### Ingestion function (local testing)
-The ingestion function runs in Azure; local testing requires the Azure Functions Core Tools and the Azure SDK emulator or a real Azure subscription.
+The ingestion function runs in Azure; it still reads blobs from Azure Blob Storage via `DefaultAzureCredential` but writes to Weaviate. Set `WEAVIATE_URL` and `STORAGE_ACCOUNT_NAME` before running locally with Azure Functions Core Tools.
 
 ### Eval suite
 ```bash

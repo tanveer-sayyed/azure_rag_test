@@ -1,7 +1,7 @@
 fastapi
 uvicorn
 jinja2
-azure-identity
-azure-search-documents
-openai
 python-multipart
+weaviate-client>=4.0
+sentence-transformers
+ollama

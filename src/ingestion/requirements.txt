@@ -1,5 +1,5 @@
 azure-functions
 azure-identity
 azure-storage-blob
-azure-search-documents
-openai
+weaviate-client>=4.0
+sentence-transformers

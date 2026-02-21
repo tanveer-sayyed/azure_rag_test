@@ -1,82 +1,82 @@
 import os
 import logging
-from azure.identity import DefaultAzureCredential, get_bearer_token_provider
-from azure.search.documents import SearchClient
-from azure.search.documents.models import VectorizedQuery
-from openai import AzureOpenAI
+import weaviate
+import weaviate.classes.config as wvc_config
+from weaviate.classes.query import MetadataQuery
+from sentence_transformers import SentenceTransformer
+import ollama as ollama_client
 
 logger = logging.getLogger(__name__)
 
+_EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+_COLLECTION = "BawnMystery"
+_DISTANCE_THRESHOLD = 0.5
+
 
 class RagEngine:
-    """Handles retrieval augmented generation logic using Azure services."""
-
-    _SCORE_THRESHOLD = 0.01
+    """Handles retrieval augmented generation logic using local services."""
 
     def __init__(self):
-        """Initialize Azure clients for Search and OpenAI."""
-        self.credential = DefaultAzureCredential()
+        """Initialize sentence-transformer, Weaviate client, and Ollama config."""
+        self._encoder = SentenceTransformer(_EMBEDDING_MODEL)
         self._embedding_cache: dict = {}
-        
-        self.azure_search_endpoint = os.environ["AZURE_SEARCH_ENDPOINT"]
-        self.azure_search_index_name = "bawn-mystery-index"
-        self.search_client = SearchClient(
-            endpoint=self.azure_search_endpoint, 
-            index_name=self.azure_search_index_name, 
-            credential=self.credential
-        )
 
-        self.azure_openai_endpoint = os.environ["AZURE_OPENAI_ENDPOINT"]
-        self.openai_client = AzureOpenAI(
-            azure_endpoint=self.azure_openai_endpoint,
-            azure_ad_token_provider=get_bearer_token_provider(self.credential, "https://cognitiveservices.azure.com/.default"),
-            api_version="2024-02-01"
-        )
-        self.chat_model_deployment_name = "gpt-35-turbo"
-        self.embedding_model_deployment_name = "text-embedding-ada-002"
+        weaviate_url = os.environ.get("WEAVIATE_URL", "http://localhost:8080")
+        url_no_scheme = weaviate_url.replace("https://", "").replace("http://", "")
+        weaviate_host, weaviate_port = (url_no_scheme.rsplit(":", 1) + ["8080"])[:2]
+        self._weaviate = weaviate.connect_to_local(host=weaviate_host, port=int(weaviate_port))
+
+        if not self._weaviate.collections.exists(_COLLECTION):
+            self._weaviate.collections.create(
+                name=_COLLECTION,
+                vectorizer_config=wvc_config.Configure.Vectorizer.none(),
+                properties=[
+                    wvc_config.Property(name="content", data_type=wvc_config.DataType.TEXT),
+                    wvc_config.Property(name="source", data_type=wvc_config.DataType.TEXT),
+                ],
+            )
+
+        self._ollama_model = os.environ.get("OLLAMA_MODEL", "llama3.1:8b")
 
     def health_check(self):
-        """Verify search service connectivity by fetching document count."""
-        self.search_client.get_document_count()
+        """Verify Weaviate is reachable."""
+        if not self._weaviate.is_ready():
+            raise RuntimeError("Weaviate is not ready")
 
     def get_text_embedding(self, text_to_embed):
-        """Return cached or freshly generated vector embedding."""
+        """Return cached or freshly generated sentence-transformer embedding."""
         if text_to_embed not in self._embedding_cache:
-            response = self.openai_client.embeddings.create(
-                input=text_to_embed,
-                model=self.embedding_model_deployment_name
-            )
-            self._embedding_cache[text_to_embed] = response.data[0].embedding
+            self._embedding_cache[text_to_embed] = self._encoder.encode(text_to_embed).tolist()
         return self._embedding_cache[text_to_embed]
 
     def ask_question(self, user_question):
         """Retrieve context and generate answer for the user question."""
-        question_embedding_vector = self.get_text_embedding(user_question)
+        question_vector = self.get_text_embedding(user_question)
 
-        search_results = self.search_client.search(
-            search_text=user_question,
-            vector_queries=[VectorizedQuery(vector=question_embedding_vector, k_nearest_neighbors=3, fields="vector")],
-            select=["content", "source"],
-            top=3
+        collection = self._weaviate.collections.get(_COLLECTION)
+        results = collection.query.near_vector(
+            near_vector=question_vector,
+            limit=3,
+            return_metadata=MetadataQuery(distance=True),
         )
 
         retrieved_context_list = [
-            f"Source: {r['source']}\nContent: {r['content']}"
-            for r in search_results
-            if r["@search.score"] >= self._SCORE_THRESHOLD
+            f"Source: {obj.properties['source']}\nContent: {obj.properties['content']}"
+            for obj in results.objects
+            if obj.metadata.distance < _DISTANCE_THRESHOLD
         ]
         logger.info("question=%r chunks=%d", user_question, len(retrieved_context_list))
-        combined_context_string = "\n\n".join(retrieved_context_list)
+        combined_context = "\n\n".join(retrieved_context_list)
 
-        system_instruction_prompt = "You are a detective assistant. Use the provided context to answer the user's question about Mr. Bawn's mysteries. If you don't know, say so."
-        user_query_prompt = f"Context:\n{combined_context_string}\n\nQuestion: {user_question}"
+        system_prompt = "You are a detective assistant. Use the provided context to answer the user's question about Mr. Bawn's mysteries. If you don't know, say so."
+        user_prompt = f"Context:\n{combined_context}\n\nQuestion: {user_question}"
 
-        chat_completion_response = self.openai_client.chat.completions.create(
-            model=self.chat_model_deployment_name,
+        response = ollama_client.chat(
+            model=self._ollama_model,
             messages=[
-                {"role": "system", "content": system_instruction_prompt},
-                {"role": "user", "content": user_query_prompt}
-            ]
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
         )
 
-        return chat_completion_response.choices[0].message.content, combined_context_string
+        return response.message.content, combined_context
