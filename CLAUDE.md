@@ -106,3 +106,63 @@ uv sync
 # Eval suite
 cd ai_evals && uv sync
 ```
+
+---
+
+## Improvement Plan: WAF + Inference Economics
+
+Ordered by impact. Each item names the file(s) to change.
+
+### P0 — Inference Economics (highest token cost reduction)
+
+**Batch embeddings during ingestion** (`indexer.py`)
+- Currently: one `embeddings.create()` call per chunk inside the loop (`indexer.py:96`).
+- Fix: collect all chunk strings, call `embeddings.create(input=chunk_list)` once, zip results back.
+- Impact: N-1 round-trips eliminated per blob; meaningful at any volume.
+
+**Cache question embeddings in the webapp** (`rag_engine.py`)
+- Currently: every `/chat` POST re-embeds the question unconditionally.
+- Fix: add an `lru_cache` or plain `dict` keyed on the question string inside `RagEngine`.
+- Impact: zero embedding cost on repeated identical queries (demos, health probes, retries).
+
+**Filter low-score retrieval context** (`rag_engine.py`)
+- Currently: top-3 chunks always forwarded verbatim to the chat completion prompt.
+- Fix: read `@search.score` from each result; drop chunks below a threshold (e.g. 0.5).
+- Impact: reduces prompt tokens when search returns weak matches; also improves answer quality.
+
+### P1 — Reliability
+
+**Move index creation out of the hot path** (`indexer.py`, `function_app.py`)
+- Currently: `ensure_search_index_exists()` runs inside `process_blob_document()` on every event (`indexer.py:87`).
+- Fix: call it once in `DocumentIndexer.__init__()` (cold start) or promote to a one-time deployment step.
+- Impact: eliminates a list-indexes API call per event; removes race condition on concurrent events.
+
+**Real health check** (`app.py`)
+- Currently: `/health` always returns `{"status": "ok"}` regardless of service state.
+- Fix: attempt a lightweight search client call (e.g. `get_index`) and return `503` on failure.
+- Impact: load balancer / container orchestrator can actually detect a broken instance.
+
+**Surface startup failures** (`app.py`)
+- Currently: `RagEngine()` failure is silently swallowed into `rag_engine_instance = None`; subsequent requests return a plain error string with no trace.
+- Fix: log the exception at startup; set a flag so `/health` returns `503` instead of `200`.
+
+### P2 — Operational Excellence
+
+**Add logging to the webapp module** (`rag_engine.py`, `app.py`)
+- Currently: zero `logging` calls in either file; errors only surface via exception strings in the HTML response.
+- Fix: add `import logging` and `logger = logging.getLogger(__name__)`; log question, retrieval count, and any exceptions.
+
+**Implement `eval/sut.py`** (`ai_evals/eval/sut.py`)
+- Currently: `run_system()` raises `NotImplementedError`, so the pre-push hook blocks every push.
+- Fix: wire `run_system()` to `RagEngine.ask_question()`; return `{"output": answer, "retrieval_context": [chunks]}`.
+- Dependency: requires the webapp to be importable from the eval directory (add `src/webapp` to path or extract shared logic).
+
+### P3 — Security / Correctness
+
+**Validate question length** (`app.py`)
+- Currently: unbounded `question` form field passed directly to embedding and chat APIs.
+- Fix: reject or truncate inputs over a reasonable limit (e.g. 2000 chars) with a 400 response.
+
+**Update `api_version`** (`rag_engine.py:26`, `indexer.py:42`)
+- Currently: `"2023-05-15"` in both clients.
+- Fix: bump to a current stable version (e.g. `"2024-02-01"`) to stay within supported lifecycle.

@@ -1,0 +1,39 @@
+judge:
+  provider: ollama
+  model: llama3.1:8b              # swap to phi4, mistral, gemma3 as needed
+  base_url: http://localhost:11434/v1
+
+metrics:
+  # ALWAYS ON
+  answer_relevancy:
+    enabled: true
+    threshold: 0.7
+
+  toxicity:
+    enabled: true
+    threshold: 0.1             # max tolerated score (lower is safer)
+
+  # RAG — enable if your system retrieves context chunks
+  faithfulness:
+    enabled: true
+    threshold: 0.7
+
+  contextual_precision:
+    enabled: true
+    threshold: 0.7
+
+  contextual_recall:
+    enabled: true
+    threshold: 0.7
+
+  # AGENT — basic support only (requires expected_tools in dataset)
+  tool_correctness:
+    enabled: false             # TODO: enable if agent
+
+  # TRAJECTORY — honest placeholder
+  # trajectory_analysis: not yet supported
+  # Reason: no open standard for trajectory ground truth in agentic systems.
+  # Workaround: log tool calls to reports/ for manual review.
+
+thresholds:
+  regression_delta: 0.05       # block push if any metric drops >5% from baseline
