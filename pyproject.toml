@@ -1,17 +1,27 @@
 [project]
-name = "ai-evals"
+name = "azure-rag-test"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    # webapp
+    "fastapi",
+    "uvicorn",
+    "jinja2",
+    "python-multipart",
+    # ingestion
+    "azure-functions",
+    "azure-identity",
+    "azure-storage-blob",
+    # shared
+    "weaviate-client>=4.0",
+    "sentence-transformers>=3.0",
+    "ollama>=0.6.1",
+    # evals
     "deepeval>=3.8.0",
     "langsmith>=0.6.4",
-    "ollama>=0.6.1",
-    "sentence-transformers>=3.0",
-    "weaviate-client>=4.0",
     "numpy>=2.4.1",
-    "ollama>=0.6.1",
     "openai>=2.15.0",
     "opentelemetry-api>=1.39.1",
     "opentelemetry-sdk>=1.39.1",
@@ -22,3 +32,8 @@ dependencies = [
     "rich>=14.2.0",
     "trulens-eval>=0.33.1",
 ]
+
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+pythonpath = ["ai_evals"]
+testpaths = ["ai_evals/eval"]

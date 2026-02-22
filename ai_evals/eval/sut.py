@@ -10,10 +10,17 @@ _engine: RagEngine | None = None
 
 
 def run_system(input: str) -> dict:
-    """Call the RAG engine and return output with retrieval context."""
+    """Call the RAG engine and return output with retrieval context and chunk metadata."""
     global _engine
     if _engine is None:
         _engine = RagEngine()
-    answer, combined_context = _engine.ask_question(input)
-    chunks = [c for c in combined_context.split("\n\n") if c.strip()]
-    return {"output": answer, "retrieval_context": chunks}
+    answer, retrieved_objects = _engine.ask_question(input)
+    chunks = [f"Source: {o['source']}\nContent: {o['content']}" for o in retrieved_objects]
+    return {
+        "output": answer,
+        "retrieval_context": chunks,
+        "chunk_sources": [o["source"] for o in retrieved_objects],
+        "chunk_distances": [round(o["distance"], 4) for o in retrieved_objects],
+        "num_chunks": len(retrieved_objects),
+        "retrieval_context_len": sum(len(c) for c in chunks),
+    }

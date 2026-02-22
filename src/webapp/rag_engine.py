@@ -56,19 +56,21 @@ class RagEngine:
         collection = self._weaviate.collections.get(_COLLECTION)
         results = collection.query.near_vector(
             near_vector=question_vector,
-            limit=3,
+            limit=5, # <--- This is the number of chunks to retrieve
             return_metadata=MetadataQuery(distance=True),
         )
 
-        retrieved_context_list = [
-            f"Source: {obj.properties['source']}\nContent: {obj.properties['content']}"
+        retrieved_objects = [
+            {"source": obj.properties["source"], "content": obj.properties["content"], "distance": obj.metadata.distance}
             for obj in results.objects
             if obj.metadata.distance < _DISTANCE_THRESHOLD
         ]
-        logger.info("question=%r chunks=%d", user_question, len(retrieved_context_list))
-        combined_context = "\n\n".join(retrieved_context_list)
+        logger.info("question=%r chunks=%d", user_question, len(retrieved_objects))
+        combined_context = "\n\n".join(
+            f"Source: {o['source']}\nContent: {o['content']}" for o in retrieved_objects
+        )
 
-        system_prompt = "You are a detective assistant. Use the provided context to answer the user's question about Mr. Bawn's mysteries. If you don't know, say so."
+        system_prompt = "Answer the question using only the facts in the provided context. Be direct and concise. Do not speculate or add information not present in the context. If the context does not contain the answer, say 'I don't know'."
         user_prompt = f"Context:\n{combined_context}\n\nQuestion: {user_question}"
 
         response = ollama_client.chat(
@@ -79,4 +81,4 @@ class RagEngine:
             ],
         )
 
-        return response.message.content, combined_context
+        return response.message.content, retrieved_objects

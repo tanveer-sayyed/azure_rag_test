@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+# pre-push hook — runs deepeval suite before every push.
+# Install: bash hooks/setup_hooks.sh
+# Bypass:  git push --no-verify  (discouraged)
+
+set -euo pipefail
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+echo ""
+echo "=== pre-push: GenAI eval suite ==="
+echo ""
+
+# ── 1. Check Ollama is reachable ──────────────────────────────────────────────
+echo "Checking Ollama..."
+if ! curl -sf http://localhost:11434/api/tags > /dev/null 2>&1; then
+    echo -e "${RED}ERROR: Ollama is not reachable at http://localhost:11434${NC}"
+    echo ""
+    echo "Fix options:"
+    echo "  • Start Ollama:   ollama serve"
+    echo "  • Pull model:     ollama pull llama3.2"
+    echo "  • Skip hook:      git push --no-verify"
+    exit 1
+fi
+echo -e "${GREEN}Ollama OK${NC}"
+echo ""
+
+# ── 2. Run pytest ─────────────────────────────────────────────────────────────
+echo "Running pytest eval/ ..."
+echo ""
+if ! uv run --project "$(git rev-parse --show-toplevel)" python -m pytest ai_evals/eval/ -x -q; then
+    echo ""
+    echo -e "${RED}BLOCKED: pytest failed. Fix the eval failures before pushing.${NC}"
+    echo "  Run:  uv run python -m pytest ai_evals/eval/ -v  for details"
+    exit 1
+fi
+echo ""
+echo -e "${GREEN}pytest PASSED${NC}"
+echo ""
+
+# ── 3. Baseline regression check ─────────────────────────────────────────────
+echo "Checking regression against baseline..."
+echo ""
+if ! uv run python ai_evals/eval/baseline.py --check; then
+    echo ""
+    echo -e "${RED}BLOCKED: metric regression detected.${NC}"
+    echo "  Fix the regression, or run:"
+    echo "    uv run python ai_evals/eval/baseline.py --update   # to accept new scores"
+    echo "    git add ai_evals/eval/baseline.json && git commit -m 'update eval baseline'"
+    exit 1
+fi
+echo ""
+echo -e "${GREEN}No regression. Push allowed.${NC}"
+echo ""
