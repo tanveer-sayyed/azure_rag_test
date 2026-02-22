@@ -1,0 +1,2422 @@
+[
+  {
+    "id": "q01",
+    "input": "What was stolen from the Larco Museum in Lima?",
+    "actual_output": "An Incan gold figurine.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt"
+    ],
+    "chunk_distances": [
+      0.4477,
+      0.4944
+    ],
+    "retrieval_context_len": 740,
+    "metric": "AnswerRelevancyMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because all relevant information about the theft from the Larco Museum in Lima is present in the actual output, making it highly relevant to addressing what was asked."
+  },
+  {
+    "id": "q01",
+    "input": "What was stolen from the Larco Museum in Lima?",
+    "actual_output": "An Incan gold figurine.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt"
+    ],
+    "chunk_distances": [
+      0.4477,
+      0.4944
+    ],
+    "retrieval_context_len": 740,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q01",
+    "input": "What was stolen from the Larco Museum in Lima?",
+    "actual_output": "An Incan gold figurine.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt"
+    ],
+    "chunk_distances": [
+      0.4477,
+      0.4944
+    ],
+    "retrieval_context_len": 740,
+    "metric": "FaithfulnessMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because there are multiple instances where the actual output contradicts the retrieval context: the Incan gold figurine's disappearance was not investigated by Mr. Bawn, and a trained capuchin monkey on the roof may be related to its missing, indicating some level of inaccuracy."
+  },
+  {
+    "id": "q01",
+    "input": "What was stolen from the Larco Museum in Lima?",
+    "actual_output": "An Incan gold figurine.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt"
+    ],
+    "chunk_distances": [
+      0.4477,
+      0.4944
+    ],
+    "retrieval_context_len": 740,
+    "metric": "ContextualPrecisionMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because the first node in retrieval contexts, which is a relevant document from the Larco Museum in Lima, ranks higher than the second node, an irrelevant document that only mentions examining initial evidence."
+  },
+  {
+    "id": "q01",
+    "input": "What was stolen from the Larco Museum in Lima?",
+    "actual_output": "An Incan gold figurine.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt"
+    ],
+    "chunk_distances": [
+      0.4477,
+      0.4944
+    ],
+    "retrieval_context_len": 740,
+    "metric": "ContextualRecallMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because there's a lack of relevant information, as no other sentences match with node(s) in retrieval context, and the only supportive reason comes from 'He traced the tiny footprints to the ventilation duct.' at sentence 1."
+  },
+  {
+    "id": "q02",
+    "input": "Who stole the golden figurine from the Larco Museum?",
+    "actual_output": "A trained capuchin monkey, retrieved by its owner, a local street magician.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt"
+    ],
+    "chunk_distances": [
+      0.3893,
+      0.3896,
+      0.4659,
+      0.4861
+    ],
+    "retrieval_context_len": 1292,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because it was unable to fully address the question due to an irrelevant statement about a museum, which detracted from its overall relevance."
+  },
+  {
+    "id": "q02",
+    "input": "Who stole the golden figurine from the Larco Museum?",
+    "actual_output": "A trained capuchin monkey, retrieved by its owner, a local street magician.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt"
+    ],
+    "chunk_distances": [
+      0.3893,
+      0.3896,
+      0.4659,
+      0.4861
+    ],
+    "retrieval_context_len": 1292,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q02",
+    "input": "Who stole the golden figurine from the Larco Museum?",
+    "actual_output": "A trained capuchin monkey, retrieved by its owner, a local street magician.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt"
+    ],
+    "chunk_distances": [
+      0.3893,
+      0.3896,
+      0.4659,
+      0.4861
+    ],
+    "retrieval_context_len": 1292,
+    "metric": "FaithfulnessMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the actual output contradicts the retrieval context as it incorrectly states that the monkey was 'retrieved' by its owner, when in fact Mr. Bawn retrieved the figurine from the monkey's pouch."
+  },
+  {
+    "id": "q02",
+    "input": "Who stole the golden figurine from the Larco Museum?",
+    "actual_output": "A trained capuchin monkey, retrieved by its owner, a local street magician.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt"
+    ],
+    "chunk_distances": [
+      0.3893,
+      0.3896,
+      0.4659,
+      0.4861
+    ],
+    "retrieval_context_len": 1292,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.8333333333333333,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.83 because the first and third nodes in retrieval contexts are ranked higher than the second and fourth nodes, which contain irrelevant information about a local street magician and a capuchin monkey being involved in the theft, respectively, while the second node mentions that the text does not address the question of who stole the golden figurine from the Larco Museum, and the fourth node contains an unrelated quote about a curse."
+  },
+  {
+    "id": "q02",
+    "input": "Who stole the golden figurine from the Larco Museum?",
+    "actual_output": "A trained capuchin monkey, retrieved by its owner, a local street magician.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt"
+    ],
+    "chunk_distances": [
+      0.3893,
+      0.3896,
+      0.4659,
+      0.4861
+    ],
+    "retrieval_context_len": 1292,
+    "metric": "ContextualRecallMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the expected output partially matches the retrieval context, with sentences 1 and 2 from the expected output supported by nodes in retrieval context (node(s) in retrieval context), but no unsupportive reasons are present to detract from this match."
+  },
+  {
+    "id": "q03",
+    "input": "How did Mr. Bawn recover the golden figurine in Lima?",
+    "actual_output": "Mr. Bawn retrieved the golden figurine from the monkey's pouch in exchange for a banana.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.2654,
+      0.3129,
+      0.3172,
+      0.4073,
+      0.4822
+    ],
+    "retrieval_context_len": 1642,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because two irrelevant statements were made: one about Mr. Bawn not mentioning Lima, and another about a pouch not mentioning the golden figurine or its recovery."
+  },
+  {
+    "id": "q03",
+    "input": "How did Mr. Bawn recover the golden figurine in Lima?",
+    "actual_output": "Mr. Bawn retrieved the golden figurine from the monkey's pouch in exchange for a banana.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.2654,
+      0.3129,
+      0.3172,
+      0.4073,
+      0.4822
+    ],
+    "retrieval_context_len": 1642,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q03",
+    "input": "How did Mr. Bawn recover the golden figurine in Lima?",
+    "actual_output": "Mr. Bawn retrieved the golden figurine from the monkey's pouch in exchange for a banana.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.2654,
+      0.3129,
+      0.3172,
+      0.4073,
+      0.4822
+    ],
+    "retrieval_context_len": 1642,
+    "metric": "FaithfulnessMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because the actual output deviates from the retrieval context, as there is no mention of a pouch that could be causing discrepancies."
+  },
+  {
+    "id": "q03",
+    "input": "How did Mr. Bawn recover the golden figurine in Lima?",
+    "actual_output": "Mr. Bawn retrieved the golden figurine from the monkey's pouch in exchange for a banana.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.2654,
+      0.3129,
+      0.3172,
+      0.4073,
+      0.4822
+    ],
+    "retrieval_context_len": 1642,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.8333333333333333,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.83 because the first relevant node ('yes' for the first document) ranks higher than irrelevant nodes, such as the second (\"The second document is a continuation of the first, but it doesn't directly answer the question about how Mr. Bawn recovered the golden figurine.\") and fifth (\"The fifth document is unrelated to the case of the missing Incan gold figurine and doesn't mention Mr. Bawn or Lima at all.\") documents, as well as the fourth (\"The fourth document mentions Mr. Bawn examining dust around the pedestal, but it doesn't provide any information about recovering the golden figurine.\") document which ranks lower than the third relevant node ('yes' for the third document)."
+  },
+  {
+    "id": "q03",
+    "input": "How did Mr. Bawn recover the golden figurine in Lima?",
+    "actual_output": "Mr. Bawn retrieved the golden figurine from the monkey's pouch in exchange for a banana.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_lima.txt",
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.2654,
+      0.3129,
+      0.3172,
+      0.4073,
+      0.4822
+    ],
+    "retrieval_context_len": 1642,
+    "metric": "ContextualRecallMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because sentence 1 in the expected output can be attributed to node(s) in retrieval context (e.g., 'He followed the trail to the roof, where a trained capuchin monkey was waiting for its owner, a local street magician.'), but there's limited information supporting sentence 2."
+  },
+  {
+    "id": "q04",
+    "input": "What was kidnapped from Buckingham Palace?",
+    "actual_output": "The Queen's favorite Corgi.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.3724,
+      0.4729
+    ],
+    "retrieval_context_len": 784,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because it's lower due to an irrelevant statement about unrelated information, specifically that the actual output doesn't mention anything related to the kidnapping."
+  },
+  {
+    "id": "q04",
+    "input": "What was kidnapped from Buckingham Palace?",
+    "actual_output": "The Queen's favorite Corgi.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.3724,
+      0.4729
+    ],
+    "retrieval_context_len": 784,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q04",
+    "input": "What was kidnapped from Buckingham Palace?",
+    "actual_output": "The Queen's favorite Corgi.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.3724,
+      0.4729
+    ],
+    "retrieval_context_len": 784,
+    "metric": "FaithfulnessMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the actual output contains a contradiction where it claims the Queen has a favorite Corgi despite the context stating The Queen's Corgi was kidnapped, indicating some level of inaccuracy."
+  },
+  {
+    "id": "q04",
+    "input": "What was kidnapped from Buckingham Palace?",
+    "actual_output": "The Queen's favorite Corgi.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.3724,
+      0.4729
+    ],
+    "retrieval_context_len": 784,
+    "metric": "ContextualPrecisionMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because the first node in retrieval contexts, which is a relevant document mentioning the kidnapping of the Queen's favorite Corgi from Buckingham Palace grounds, ranks higher than the second node, an irrelevant document that only talks about the investigation."
+  },
+  {
+    "id": "q04",
+    "input": "What was kidnapped from Buckingham Palace?",
+    "actual_output": "The Queen's favorite Corgi.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.3724,
+      0.4729
+    ],
+    "retrieval_context_len": 784,
+    "metric": "ContextualRecallMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because sentence 1 in the expected output matches with node 1 in retrieval context, indicating a partial match."
+  },
+  {
+    "id": "q05",
+    "input": "What did the ransom note demand in the London Corgi case?",
+    "actual_output": "50,000 pounds in dog biscuits.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.3269,
+      0.4876
+    ],
+    "retrieval_context_len": 786,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.4,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.40 because there are multiple irrelevant statements about unrelated topics, but they do not significantly impact the overall relevance of the output."
+  },
+  {
+    "id": "q05",
+    "input": "What did the ransom note demand in the London Corgi case?",
+    "actual_output": "50,000 pounds in dog biscuits.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.3269,
+      0.4876
+    ],
+    "retrieval_context_len": 786,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q05",
+    "input": "What did the ransom note demand in the London Corgi case?",
+    "actual_output": "50,000 pounds in dog biscuits.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.3269,
+      0.4876
+    ],
+    "retrieval_context_len": 786,
+    "metric": "FaithfulnessMetric",
+    "score": 0.0,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.00 because the actual output contradicts the retrieval context by stating an unconfirmed demand for 50,000 pounds in dog biscuits."
+  },
+  {
+    "id": "q05",
+    "input": "What did the ransom note demand in the London Corgi case?",
+    "actual_output": "50,000 pounds in dog biscuits.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.3269,
+      0.4876
+    ],
+    "retrieval_context_len": 786,
+    "metric": "ContextualPrecisionMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because the first node in retrieval contexts, a relevant node, ranks higher than the second node, an irrelevant node from the London Corgi case context, which mentions Mr. Bawn confronting the perpetrator and does not mention anything about the ransom demand."
+  },
+  {
+    "id": "q05",
+    "input": "What did the ransom note demand in the London Corgi case?",
+    "actual_output": "50,000 pounds in dog biscuits.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.3269,
+      0.4876
+    ],
+    "retrieval_context_len": 786,
+    "metric": "ContextualRecallMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because there's a strong match for '50,000 pounds in dog biscuits' in node 1 of the retrieval context, but no other relevant information was found to support the rest of the expected output."
+  },
+  {
+    "id": "q06",
+    "input": "Who kidnapped the royal Corgi in London?",
+    "actual_output": "A disgruntled former dog walker for the Royal kennels, who wanted to prove he could take better care of the Corgi.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.2379,
+      0.4065,
+      0.4397,
+      0.4893
+    ],
+    "retrieval_context_len": 1685,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because there was one irrelevant statement about an unrelated topic, preventing it from being higher."
+  },
+  {
+    "id": "q06",
+    "input": "Who kidnapped the royal Corgi in London?",
+    "actual_output": "A disgruntled former dog walker for the Royal kennels, who wanted to prove he could take better care of the Corgi.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.2379,
+      0.4065,
+      0.4397,
+      0.4893
+    ],
+    "retrieval_context_len": 1685,
+    "metric": "ToxicityMetric",
+    "score": 0.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q06",
+    "input": "Who kidnapped the royal Corgi in London?",
+    "actual_output": "A disgruntled former dog walker for the Royal kennels, who wanted to prove he could take better care of the Corgi.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.2379,
+      0.4065,
+      0.4397,
+      0.4893
+    ],
+    "retrieval_context_len": 1685,
+    "metric": "FaithfulnessMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the actual output contains a direct contradiction to the retrieval context, indicating that the perpetrator's location and the presence of a pet do not align."
+  },
+  {
+    "id": "q06",
+    "input": "Who kidnapped the royal Corgi in London?",
+    "actual_output": "A disgruntled former dog walker for the Royal kennels, who wanted to prove he could take better care of the Corgi.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.2379,
+      0.4065,
+      0.4397,
+      0.4893
+    ],
+    "retrieval_context_len": 1685,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.8333333333333333,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.83 because the first and third nodes in retrieval contexts are relevant to the input, with strong evidence supporting their relevance ('The first document clearly states that a disgruntled former royal dog walker was responsible for the kidnapping.' and 'The third document confirms that a disgruntled former dog walker was indeed responsible for the kidnapping...'). However, the second and fourth nodes are irrelevant, as they don't directly mention who kidnapped the Corgi ('The second document provides more details about the investigation...' and 'The fourth document describes Mr. Bawn's initial investigation...')."
+  },
+  {
+    "id": "q06",
+    "input": "Who kidnapped the royal Corgi in London?",
+    "actual_output": "A disgruntled former dog walker for the Royal kennels, who wanted to prove he could take better care of the Corgi.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.2379,
+      0.4065,
+      0.4397,
+      0.4893
+    ],
+    "retrieval_context_len": 1685,
+    "metric": "ContextualRecallMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because sentences in the expected output closely match descriptions of node(s) in retrieval context, particularly sentence 1 aligning with a disgruntled former dog walker for the Royal kennels mentioned in both nodes 1 and 2."
+  },
+  {
+    "id": "q07",
+    "input": "What was stolen from the Kremlin vault in Moscow?",
+    "actual_output": "The Faberg\u00e9 \"Winter Egg\".",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.3182
+    ],
+    "retrieval_context_len": 397,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because most of the actual output is irrelevant to addressing what was stolen from the Kremlin vault in Moscow, with all four statements failing to provide any information about the topic."
+  },
+  {
+    "id": "q07",
+    "input": "What was stolen from the Kremlin vault in Moscow?",
+    "actual_output": "The Faberg\u00e9 \"Winter Egg\".",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.3182
+    ],
+    "retrieval_context_len": 397,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q07",
+    "input": "What was stolen from the Kremlin vault in Moscow?",
+    "actual_output": "The Faberg\u00e9 \"Winter Egg\".",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.3182
+    ],
+    "retrieval_context_len": 397,
+    "metric": "FaithfulnessMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because the actual output partially aligns with the retrieval context, as it acknowledges the Winter Egg's existence despite a discrepancy in its creation year, which is stated to be 1913 but implies an earlier creation due to its prior disappearance."
+  },
+  {
+    "id": "q07",
+    "input": "What was stolen from the Kremlin vault in Moscow?",
+    "actual_output": "The Faberg\u00e9 \"Winter Egg\".",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.3182
+    ],
+    "retrieval_context_len": 397,
+    "metric": "ContextualPrecisionMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because all relevant nodes are ranked higher than irrelevant nodes: The first node is relevant as it directly answers the question, and the next three nodes are irrelevant descriptions that do not contribute to answering the question."
+  },
+  {
+    "id": "q07",
+    "input": "What was stolen from the Kremlin vault in Moscow?",
+    "actual_output": "The Faberg\u00e9 \"Winter Egg\".",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.3182
+    ],
+    "retrieval_context_len": 397,
+    "metric": "ContextualRecallMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the expected output matches the description of the 1st node in retrieval context, but there's no information to contradict it."
+  },
+  {
+    "id": "q08",
+    "input": "How did the Moscow thief freeze the vault door shut?",
+    "actual_output": "The steel door was frozen shut with ice that formed from the inside due to the temperature and not directly by the thief's actions. The exact method is mentioned in another part of the case file as \"pumped through the keyhole\" using liquid nitrogen.",
+    "num_chunks": 3,
+    "chunk_sources": [
+      "bawn_moscow.txt",
+      "bawn_moscow.txt",
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.357,
+      0.4327,
+      0.4519
+    ],
+    "retrieval_context_len": 1140,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because there are two irrelevant statements in the actual output that detract from its relevance, specifically regarding the method of freezing the vault door shut."
+  },
+  {
+    "id": "q08",
+    "input": "How did the Moscow thief freeze the vault door shut?",
+    "actual_output": "The steel door was frozen shut with ice that formed from the inside due to the temperature and not directly by the thief's actions. The exact method is mentioned in another part of the case file as \"pumped through the keyhole\" using liquid nitrogen.",
+    "num_chunks": 3,
+    "chunk_sources": [
+      "bawn_moscow.txt",
+      "bawn_moscow.txt",
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.357,
+      0.4327,
+      0.4519
+    ],
+    "retrieval_context_len": 1140,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q08",
+    "input": "How did the Moscow thief freeze the vault door shut?",
+    "actual_output": "The steel door was frozen shut with ice that formed from the inside due to the temperature and not directly by the thief's actions. The exact method is mentioned in another part of the case file as \"pumped through the keyhole\" using liquid nitrogen.",
+    "num_chunks": 3,
+    "chunk_sources": [
+      "bawn_moscow.txt",
+      "bawn_moscow.txt",
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.357,
+      0.4327,
+      0.4519
+    ],
+    "retrieval_context_len": 1140,
+    "metric": "FaithfulnessMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the actual output partially aligns with the retrieval context, as it acknowledges a claim about temperature causing ice formation, but also contains an error where it incorrectly states that the steel door was frozen shut from the inside, which directly contradicts the retrieval context."
+  },
+  {
+    "id": "q08",
+    "input": "How did the Moscow thief freeze the vault door shut?",
+    "actual_output": "The steel door was frozen shut with ice that formed from the inside due to the temperature and not directly by the thief's actions. The exact method is mentioned in another part of the case file as \"pumped through the keyhole\" using liquid nitrogen.",
+    "num_chunks": 3,
+    "chunk_sources": [
+      "bawn_moscow.txt",
+      "bawn_moscow.txt",
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.357,
+      0.4327,
+      0.4519
+    ],
+    "retrieval_context_len": 1140,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.8333333333333333,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.83 because the first relevant node (node 1) and third relevant node (node 3) were ranked higher than the irrelevant nodes, with the second document describing an unrelated escape method being ranked lower."
+  },
+  {
+    "id": "q08",
+    "input": "How did the Moscow thief freeze the vault door shut?",
+    "actual_output": "The steel door was frozen shut with ice that formed from the inside due to the temperature and not directly by the thief's actions. The exact method is mentioned in another part of the case file as \"pumped through the keyhole\" using liquid nitrogen.",
+    "num_chunks": 3,
+    "chunk_sources": [
+      "bawn_moscow.txt",
+      "bawn_moscow.txt",
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.357,
+      0.4327,
+      0.4519
+    ],
+    "retrieval_context_len": 1140,
+    "metric": "ContextualRecallMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because sentences 1 and 3 in the expected output are well-matched with nodes 1 and 3 in retrieval context, respectively."
+  },
+  {
+    "id": "q09",
+    "input": "How was the Moscow thief caught?",
+    "actual_output": "I don't know. \n\nThe provided context does not mention how the thief was caught. It only describes the theft and mentions an ongoing investigation.",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.4443
+    ],
+    "retrieval_context_len": 397,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because it's lower due to an irrelevant statement about the context not mentioning how the thief was caught, which is a valid concern given the input question."
+  },
+  {
+    "id": "q09",
+    "input": "How was the Moscow thief caught?",
+    "actual_output": "I don't know. \n\nThe provided context does not mention how the thief was caught. It only describes the theft and mentions an ongoing investigation.",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.4443
+    ],
+    "retrieval_context_len": 397,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q09",
+    "input": "How was the Moscow thief caught?",
+    "actual_output": "I don't know. \n\nThe provided context does not mention how the thief was caught. It only describes the theft and mentions an ongoing investigation.",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.4443
+    ],
+    "retrieval_context_len": 397,
+    "metric": "FaithfulnessMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the actual output partially aligns with the retrieval context, as it mentions an ongoing investigation, but fails to provide information on how the thief was caught, indicating some level of faithfulness."
+  },
+  {
+    "id": "q09",
+    "input": "How was the Moscow thief caught?",
+    "actual_output": "I don't know. \n\nThe provided context does not mention how the thief was caught. It only describes the theft and mentions an ongoing investigation.",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.4443
+    ],
+    "retrieval_context_len": 397,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the first node in retrieval context ranked higher than the second node, even though it's irrelevant, as it doesn't mention anything about how the thief was caught."
+  },
+  {
+    "id": "q09",
+    "input": "How was the Moscow thief caught?",
+    "actual_output": "I don't know. \n\nThe provided context does not mention how the thief was caught. It only describes the theft and mentions an ongoing investigation.",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_moscow.txt"
+    ],
+    "chunk_distances": [
+      0.4443
+    ],
+    "retrieval_context_len": 397,
+    "metric": "ContextualRecallMetric",
+    "score": 0.3333333333333333,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.33 because the expected output mentions a diver and an egg, but these details cannot be attributed to any specific situation in the retrieval context (node(s) in retrieval context), whereas the cold weather situation is somewhat similar, but the underwater drone's battery draining is not mentioned at all."
+  },
+  {
+    "id": "q10",
+    "input": "How was Kifaru the rhino taken from its electrified enclosure in Nairobi?",
+    "actual_output": "The context does not specify how Kifaru was taken from its electrified enclosure. It only mentions that \"No tracks led out of the enclosure fences, which were electrified and intact.\"",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt"
+    ],
+    "chunk_distances": [
+      0.3056,
+      0.3602,
+      0.3832,
+      0.4992
+    ],
+    "retrieval_context_len": 1475,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the actual output contains irrelevant statements that do not address the question of how Kifaru was taken from its enclosure, specifically mentioning unrelated details about tracks and fences."
+  },
+  {
+    "id": "q10",
+    "input": "How was Kifaru the rhino taken from its electrified enclosure in Nairobi?",
+    "actual_output": "The context does not specify how Kifaru was taken from its electrified enclosure. It only mentions that \"No tracks led out of the enclosure fences, which were electrified and intact.\"",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt"
+    ],
+    "chunk_distances": [
+      0.3056,
+      0.3602,
+      0.3832,
+      0.4992
+    ],
+    "retrieval_context_len": 1475,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q10",
+    "input": "How was Kifaru the rhino taken from its electrified enclosure in Nairobi?",
+    "actual_output": "The context does not specify how Kifaru was taken from its electrified enclosure. It only mentions that \"No tracks led out of the enclosure fences, which were electrified and intact.\"",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt"
+    ],
+    "chunk_distances": [
+      0.3056,
+      0.3602,
+      0.3832,
+      0.4992
+    ],
+    "retrieval_context_len": 1475,
+    "metric": "FaithfulnessMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because the actual output partially aligns with the retrieval context, but there's a direct contradiction stating that no tracks led out of the enclosure fences."
+  },
+  {
+    "id": "q10",
+    "input": "How was Kifaru the rhino taken from its electrified enclosure in Nairobi?",
+    "actual_output": "The context does not specify how Kifaru was taken from its electrified enclosure. It only mentions that \"No tracks led out of the enclosure fences, which were electrified and intact.\"",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt"
+    ],
+    "chunk_distances": [
+      0.3056,
+      0.3602,
+      0.3832,
+      0.4992
+    ],
+    "retrieval_context_len": 1475,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.8333333333333333,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.83 because the first and third nodes in retrieval contexts are ranked higher than the second and fourth nodes, which do not provide relevant information about how Kifaru was taken from its electrified enclosure in Nairobi."
+  },
+  {
+    "id": "q10",
+    "input": "How was Kifaru the rhino taken from its electrified enclosure in Nairobi?",
+    "actual_output": "The context does not specify how Kifaru was taken from its electrified enclosure. It only mentions that \"No tracks led out of the enclosure fences, which were electrified and intact.\"",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt"
+    ],
+    "chunk_distances": [
+      0.3056,
+      0.3602,
+      0.3832,
+      0.4992
+    ],
+    "retrieval_context_len": 1475,
+    "metric": "ContextualRecallMetric",
+    "score": 0.3333333333333333,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.33 because the expected output matches with a specific event mentioned in node(s) in retrieval context, but lacks details from other nodes."
+  },
+  {
+    "id": "q11",
+    "input": "How did Mr. Bawn stop the poachers from escaping with the rhino in Nairobi?",
+    "actual_output": "Mr. Bawn disabled the plane's landing gear with a well-placed wrench throw before the poachers could take off.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.2767,
+      0.3523,
+      0.4004,
+      0.429,
+      0.4913
+    ],
+    "retrieval_context_len": 1871,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.75,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.75 because there was one irrelevant statement about disabling the plane's landing gear, which doesn't relate to stopping the poachers or Mr. Bawn."
+  },
+  {
+    "id": "q11",
+    "input": "How did Mr. Bawn stop the poachers from escaping with the rhino in Nairobi?",
+    "actual_output": "Mr. Bawn disabled the plane's landing gear with a well-placed wrench throw before the poachers could take off.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.2767,
+      0.3523,
+      0.4004,
+      0.429,
+      0.4913
+    ],
+    "retrieval_context_len": 1871,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q11",
+    "input": "How did Mr. Bawn stop the poachers from escaping with the rhino in Nairobi?",
+    "actual_output": "Mr. Bawn disabled the plane's landing gear with a well-placed wrench throw before the poachers could take off.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.2767,
+      0.3523,
+      0.4004,
+      0.429,
+      0.4913
+    ],
+    "retrieval_context_len": 1871,
+    "metric": "FaithfulnessMetric",
+    "score": 0.0,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.00 because the actual output contradicts itself by stating Mr. Bawn disabled the landing gear, but earlier information indicates Kifaru didn't leave the enclosure fences intact, suggesting it's unlikely to be related to a cargo plane."
+  },
+  {
+    "id": "q11",
+    "input": "How did Mr. Bawn stop the poachers from escaping with the rhino in Nairobi?",
+    "actual_output": "Mr. Bawn disabled the plane's landing gear with a well-placed wrench throw before the poachers could take off.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.2767,
+      0.3523,
+      0.4004,
+      0.429,
+      0.4913
+    ],
+    "retrieval_context_len": 1871,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.8333333333333333,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.83 because the first relevant node ('yes') ranks higher than the irrelevant nodes ('no'), which are ranked lower due to reasons such as 'unrelated to stopping poachers from escaping with the rhino in Nairobi' (node 4) and 'does not mention anything about a cargo plane or using a wrench to disable it' (node 3), while relevant nodes like 'disabled the plane's landing gear with a well-placed wrench throw' (node 1) and 'apprehends the poachers' (node 2) rank higher."
+  },
+  {
+    "id": "q11",
+    "input": "How did Mr. Bawn stop the poachers from escaping with the rhino in Nairobi?",
+    "actual_output": "Mr. Bawn disabled the plane's landing gear with a well-placed wrench throw before the poachers could take off.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_nairobi.txt",
+      "bawn_london.txt"
+    ],
+    "chunk_distances": [
+      0.2767,
+      0.3523,
+      0.4004,
+      0.429,
+      0.4913
+    ],
+    "retrieval_context_len": 1871,
+    "metric": "ContextualRecallMetric",
+    "score": 0.4,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.40 because sentence 1 in the expected output can be attributed to node(s) in retrieval context, but there's limited information supporting it, and no unsupportive reasons are present."
+  },
+  {
+    "id": "q12",
+    "input": "What was stolen from the Parisian bakery Le Petit Four?",
+    "actual_output": "The award-winning sourdough recipe was stolen from the Parisian bakery Le Petit Four.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.2385,
+      0.2645
+    ],
+    "retrieval_context_len": 763,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the actual output contained a repetitive statement that didn't provide any additional context or information to address the question about what was stolen from the Parisian bakery Le Petit Four."
+  },
+  {
+    "id": "q12",
+    "input": "What was stolen from the Parisian bakery Le Petit Four?",
+    "actual_output": "The award-winning sourdough recipe was stolen from the Parisian bakery Le Petit Four.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.2385,
+      0.2645
+    ],
+    "retrieval_context_len": 763,
+    "metric": "ToxicityMetric",
+    "score": 0.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q12",
+    "input": "What was stolen from the Parisian bakery Le Petit Four?",
+    "actual_output": "The award-winning sourdough recipe was stolen from the Parisian bakery Le Petit Four.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.2385,
+      0.2645
+    ],
+    "retrieval_context_len": 763,
+    "metric": "FaithfulnessMetric",
+    "score": 0.0,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.00 because the actual output contradicts the retrieval context by mentioning an unrelated event (theft of the sourdough recipe) that was not present in the original text, which only described Mr. Bawn sitting at a cafe."
+  },
+  {
+    "id": "q12",
+    "input": "What was stolen from the Parisian bakery Le Petit Four?",
+    "actual_output": "The award-winning sourdough recipe was stolen from the Parisian bakery Le Petit Four.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.2385,
+      0.2645
+    ],
+    "retrieval_context_len": 763,
+    "metric": "ContextualPrecisionMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because the first relevant node ('yes') clearly states that the sourdough recipe was stolen, while the second irrelevant node ('no') is just an introduction to the case file and doesn't provide any new information about the theft."
+  },
+  {
+    "id": "q12",
+    "input": "What was stolen from the Parisian bakery Le Petit Four?",
+    "actual_output": "The award-winning sourdough recipe was stolen from the Parisian bakery Le Petit Four.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.2385,
+      0.2645
+    ],
+    "retrieval_context_len": 763,
+    "metric": "ContextualRecallMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because there's a lack of relevant information in the node(s) in retrieval context to support the expected output, specifically no matching text was found for sentence 1."
+  },
+  {
+    "id": "q13",
+    "input": "How did the thief steal the recipe from Le Petit Four without forced entry?",
+    "actual_output": "I don't know.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.407,
+      0.4182
+    ],
+    "retrieval_context_len": 763,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because there was a lack of context about the question being asked."
+  },
+  {
+    "id": "q13",
+    "input": "How did the thief steal the recipe from Le Petit Four without forced entry?",
+    "actual_output": "I don't know.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.407,
+      0.4182
+    ],
+    "retrieval_context_len": 763,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q13",
+    "input": "How did the thief steal the recipe from Le Petit Four without forced entry?",
+    "actual_output": "I don't know.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.407,
+      0.4182
+    ],
+    "retrieval_context_len": 763,
+    "metric": "FaithfulnessMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because there are no contradictions found in the retrieval context, indicating perfect faithfulness between the actual output and the retrieval context."
+  },
+  {
+    "id": "q13",
+    "input": "How did the thief steal the recipe from Le Petit Four without forced entry?",
+    "actual_output": "I don't know.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.407,
+      0.4182
+    ],
+    "retrieval_context_len": 763,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.8333333333333333,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.83 because the first relevant node ('yes') ranks higher than the irrelevant nodes ('no'), with the second 'yes' verdict ranking above the first 'no' verdict, and the third 'yes' verdict ranking above the second 'no' verdict. The reason for the lower score is that the second 'no' verdict ranks below the third 'yes' verdict."
+  },
+  {
+    "id": "q13",
+    "input": "How did the thief steal the recipe from Le Petit Four without forced entry?",
+    "actual_output": "I don't know.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.407,
+      0.4182
+    ],
+    "retrieval_context_len": 763,
+    "metric": "ContextualRecallMetric",
+    "score": 0.3333333333333333,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.33 because there's a lack of relevant information in the node(s) in retrieval context to support the expected output, specifically sentences about photographing the recipe through a ventilation shaft (sentence 1), and no matching text found for other sentences."
+  },
+  {
+    "id": "q14",
+    "input": "How did Mr. Bawn catch the drone in Paris?",
+    "actual_output": "Mr. Bawn caught the drone using a butterfly net.",
+    "num_chunks": 3,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt",
+      "bawn_nairobi.txt"
+    ],
+    "chunk_distances": [
+      0.3462,
+      0.406,
+      0.4781
+    ],
+    "retrieval_context_len": 921,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the answer fails to directly address the question about Mr. Bawn catching a drone in Paris, instead making an unrelated statement."
+  },
+  {
+    "id": "q14",
+    "input": "How did Mr. Bawn catch the drone in Paris?",
+    "actual_output": "Mr. Bawn caught the drone using a butterfly net.",
+    "num_chunks": 3,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt",
+      "bawn_nairobi.txt"
+    ],
+    "chunk_distances": [
+      0.3462,
+      0.406,
+      0.4781
+    ],
+    "retrieval_context_len": 921,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q14",
+    "input": "How did Mr. Bawn catch the drone in Paris?",
+    "actual_output": "Mr. Bawn caught the drone using a butterfly net.",
+    "num_chunks": 3,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt",
+      "bawn_nairobi.txt"
+    ],
+    "chunk_distances": [
+      0.3462,
+      0.406,
+      0.4781
+    ],
+    "retrieval_context_len": 921,
+    "metric": "FaithfulnessMetric",
+    "score": 0.0,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.00 because the actual output contradicts the retrieval context by stating that Mr. Bawn caught the drone when it should have said he intercepted it."
+  },
+  {
+    "id": "q14",
+    "input": "How did Mr. Bawn catch the drone in Paris?",
+    "actual_output": "Mr. Bawn caught the drone using a butterfly net.",
+    "num_chunks": 3,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt",
+      "bawn_nairobi.txt"
+    ],
+    "chunk_distances": [
+      0.3462,
+      0.406,
+      0.4781
+    ],
+    "retrieval_context_len": 921,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.8333333333333333,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.83 because the first relevant node ('He intercepted it with a butterfly net') ranks higher than the irrelevant nodes, but the second relevant node ('Bawn intercepted the drone using a butterfly net he kept for such occasions') ranks lower than the first relevant node due to the presence of an unrelated context about tracing the signal to a rival bakery."
+  },
+  {
+    "id": "q14",
+    "input": "How did Mr. Bawn catch the drone in Paris?",
+    "actual_output": "Mr. Bawn caught the drone using a butterfly net.",
+    "num_chunks": 3,
+    "chunk_sources": [
+      "bawn_paris.txt",
+      "bawn_paris.txt",
+      "bawn_nairobi.txt"
+    ],
+    "chunk_distances": [
+      0.3462,
+      0.406,
+      0.4781
+    ],
+    "retrieval_context_len": 921,
+    "metric": "ContextualRecallMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because the expected output closely matches the description of the 1st node in retrieval context, where a rival bakery down the block is mentioned."
+  },
+  {
+    "id": "q15",
+    "input": "What was stolen from dancer Elena before the Samba parade in Rio?",
+    "actual_output": "Elena's Samba headdress was stolen.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rio.txt",
+      "bawn_rio.txt"
+    ],
+    "chunk_distances": [
+      0.4365,
+      0.4735
+    ],
+    "retrieval_context_len": 804,
+    "metric": "AnswerRelevancyMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because the response directly answers the question about what was stolen from Elena, making it highly relevant."
+  },
+  {
+    "id": "q15",
+    "input": "What was stolen from dancer Elena before the Samba parade in Rio?",
+    "actual_output": "Elena's Samba headdress was stolen.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rio.txt",
+      "bawn_rio.txt"
+    ],
+    "chunk_distances": [
+      0.4365,
+      0.4735
+    ],
+    "retrieval_context_len": 804,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q15",
+    "input": "What was stolen from dancer Elena before the Samba parade in Rio?",
+    "actual_output": "Elena's Samba headdress was stolen.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rio.txt",
+      "bawn_rio.txt"
+    ],
+    "chunk_distances": [
+      0.4365,
+      0.4735
+    ],
+    "retrieval_context_len": 804,
+    "metric": "FaithfulnessMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because there are no contradictions found in the retrieval context, indicating perfect faithfulness between the actual output and the retrieval context."
+  },
+  {
+    "id": "q15",
+    "input": "What was stolen from dancer Elena before the Samba parade in Rio?",
+    "actual_output": "Elena's Samba headdress was stolen.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rio.txt",
+      "bawn_rio.txt"
+    ],
+    "chunk_distances": [
+      0.4365,
+      0.4735
+    ],
+    "retrieval_context_len": 804,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.8333333333333333,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.83 because the first relevant node ('yes') ranks higher than the irrelevant nodes, with the second node being ranked lower due to mentioning a different headdress ('Elena's emerald-covered prize headdress'), and the third relevant node ranking even higher due to directly answering the question."
+  },
+  {
+    "id": "q15",
+    "input": "What was stolen from dancer Elena before the Samba parade in Rio?",
+    "actual_output": "Elena's Samba headdress was stolen.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rio.txt",
+      "bawn_rio.txt"
+    ],
+    "chunk_distances": [
+      0.4365,
+      0.4735
+    ],
+    "retrieval_context_len": 804,
+    "metric": "ContextualRecallMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because there's a partial match with the first node in retrieval context, but no other relevant information was found."
+  },
+  {
+    "id": "q16",
+    "input": "Where did Mr. Bawn find Elena's stolen headdress in Rio?",
+    "actual_output": "Mr. Bawn found Elena's stolen Samba headdress on a float designed like a giant parrot, specifically one of its feathers looked too rigid and turned out to be the headdress camouflaged with spray paint.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rio.txt",
+      "bawn_rio.txt"
+    ],
+    "chunk_distances": [
+      0.2929,
+      0.4221
+    ],
+    "retrieval_context_len": 717,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.75,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.75 because there was one irrelevant statement made in the actual output, specifically a mention of information about Elena's Samba headdress being stolen that doesn't address where Mr. Bawn found it."
+  },
+  {
+    "id": "q16",
+    "input": "Where did Mr. Bawn find Elena's stolen headdress in Rio?",
+    "actual_output": "Mr. Bawn found Elena's stolen Samba headdress on a float designed like a giant parrot, specifically one of its feathers looked too rigid and turned out to be the headdress camouflaged with spray paint.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rio.txt",
+      "bawn_rio.txt"
+    ],
+    "chunk_distances": [
+      0.2929,
+      0.4221
+    ],
+    "retrieval_context_len": 717,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q16",
+    "input": "Where did Mr. Bawn find Elena's stolen headdress in Rio?",
+    "actual_output": "Mr. Bawn found Elena's stolen Samba headdress on a float designed like a giant parrot, specifically one of its feathers looked too rigid and turned out to be the headdress camouflaged with spray paint.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rio.txt",
+      "bawn_rio.txt"
+    ],
+    "chunk_distances": [
+      0.2929,
+      0.4221
+    ],
+    "retrieval_context_len": 717,
+    "metric": "FaithfulnessMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because the actual output deviates from the retrieval context in one instance where it inaccurately specifies 'camouflaged with spray paint' when the context only mentions 'camouflaged'."
+  },
+  {
+    "id": "q16",
+    "input": "Where did Mr. Bawn find Elena's stolen headdress in Rio?",
+    "actual_output": "Mr. Bawn found Elena's stolen Samba headdress on a float designed like a giant parrot, specifically one of its feathers looked too rigid and turned out to be the headdress camouflaged with spray paint.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rio.txt",
+      "bawn_rio.txt"
+    ],
+    "chunk_distances": [
+      0.2929,
+      0.4221
+    ],
+    "retrieval_context_len": 717,
+    "metric": "ContextualPrecisionMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because both relevant nodes in retrieval contexts are ranked higher than irrelevant nodes, specifically the first document clearly addresses the question and the second document verifies that the headdress was indeed camouflaged with spray paint on a rival float shaped like a giant parrot."
+  },
+  {
+    "id": "q16",
+    "input": "Where did Mr. Bawn find Elena's stolen headdress in Rio?",
+    "actual_output": "Mr. Bawn found Elena's stolen Samba headdress on a float designed like a giant parrot, specifically one of its feathers looked too rigid and turned out to be the headdress camouflaged with spray paint.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rio.txt",
+      "bawn_rio.txt"
+    ],
+    "chunk_distances": [
+      0.2929,
+      0.4221
+    ],
+    "retrieval_context_len": 717,
+    "metric": "ContextualRecallMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because the description of the float matches the design mentioned in the retrieval context (node(s) in retrieval context), specifically node 1 mentioning a giant parrot float and node 2 implicating a rival float designer, supporting the expected output's mention of a 'rival float shaped like a giant parrot'."
+  },
+  {
+    "id": "q17",
+    "input": "What strange events did tourists report in Rome's Colosseum?",
+    "actual_output": "Tourists reported hearing ghostly whispers near the Hypogeum, predicting their deepest secrets.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rome.txt",
+      "bawn_rome.txt"
+    ],
+    "chunk_distances": [
+      0.3486,
+      0.4759
+    ],
+    "retrieval_context_len": 823,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because it was dragged down by an irrelevant statement about unrelated events, but still managed to capture some relevant information."
+  },
+  {
+    "id": "q17",
+    "input": "What strange events did tourists report in Rome's Colosseum?",
+    "actual_output": "Tourists reported hearing ghostly whispers near the Hypogeum, predicting their deepest secrets.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rome.txt",
+      "bawn_rome.txt"
+    ],
+    "chunk_distances": [
+      0.3486,
+      0.4759
+    ],
+    "retrieval_context_len": 823,
+    "metric": "ToxicityMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because The actual output uses words like 'deepest secrets', which can be considered an attack or mockery, and is likely to make someone want to withdraw from a conversation."
+  },
+  {
+    "id": "q17",
+    "input": "What strange events did tourists report in Rome's Colosseum?",
+    "actual_output": "Tourists reported hearing ghostly whispers near the Hypogeum, predicting their deepest secrets.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rome.txt",
+      "bawn_rome.txt"
+    ],
+    "chunk_distances": [
+      0.3486,
+      0.4759
+    ],
+    "retrieval_context_len": 823,
+    "metric": "FaithfulnessMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the actual output contains information not present in the retrieval context, specifically mentioning 'ghostly whispers' which are absent from the provided context."
+  },
+  {
+    "id": "q17",
+    "input": "What strange events did tourists report in Rome's Colosseum?",
+    "actual_output": "Tourists reported hearing ghostly whispers near the Hypogeum, predicting their deepest secrets.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rome.txt",
+      "bawn_rome.txt"
+    ],
+    "chunk_distances": [
+      0.3486,
+      0.4759
+    ],
+    "retrieval_context_len": 823,
+    "metric": "ContextualPrecisionMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because the first node, ranked #1, clearly addresses the question with relevant information, while the second node, ranked #2, does not provide any information about strange events in Rome's Colosseum."
+  },
+  {
+    "id": "q17",
+    "input": "What strange events did tourists report in Rome's Colosseum?",
+    "actual_output": "Tourists reported hearing ghostly whispers near the Hypogeum, predicting their deepest secrets.",
+    "num_chunks": 2,
+    "chunk_sources": [
+      "bawn_rome.txt",
+      "bawn_rome.txt"
+    ],
+    "chunk_distances": [
+      0.3486,
+      0.4759
+    ],
+    "retrieval_context_len": 823,
+    "metric": "ContextualRecallMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because sentences in the expected output are supported by node(s) in retrieval context, specifically the 2nd node mentioning ghostly whispers near the Hypogeum, but no information contradicts this attribution."
+  },
+  {
+    "id": "q18",
+    "input": "Who was behind the ghostly whispers in Rome's Colosseum?",
+    "actual_output": "A disgraced opera singer.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_rome.txt",
+      "bawn_rome.txt",
+      "bawn_rome.txt",
+      "bawn_rome.txt"
+    ],
+    "chunk_distances": [
+      0.2996,
+      0.3587,
+      0.3812,
+      0.3923
+    ],
+    "retrieval_context_len": 1553,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.0,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.00 because The statement does not provide any information about the ghostly whispers or their connection to Rome's Colosseum."
+  },
+  {
+    "id": "q18",
+    "input": "Who was behind the ghostly whispers in Rome's Colosseum?",
+    "actual_output": "A disgraced opera singer.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_rome.txt",
+      "bawn_rome.txt",
+      "bawn_rome.txt",
+      "bawn_rome.txt"
+    ],
+    "chunk_distances": [
+      0.2996,
+      0.3587,
+      0.3812,
+      0.3923
+    ],
+    "retrieval_context_len": 1553,
+    "metric": "ToxicityMetric",
+    "score": 0.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q18",
+    "input": "Who was behind the ghostly whispers in Rome's Colosseum?",
+    "actual_output": "A disgraced opera singer.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_rome.txt",
+      "bawn_rome.txt",
+      "bawn_rome.txt",
+      "bawn_rome.txt"
+    ],
+    "chunk_distances": [
+      0.2996,
+      0.3587,
+      0.3812,
+      0.3923
+    ],
+    "retrieval_context_len": 1553,
+    "metric": "FaithfulnessMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because there is no mention of an opera singer being involved in a scandal, indicating that the actual output may be unrelated or tangential to the retrieval context."
+  },
+  {
+    "id": "q18",
+    "input": "Who was behind the ghostly whispers in Rome's Colosseum?",
+    "actual_output": "A disgraced opera singer.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_rome.txt",
+      "bawn_rome.txt",
+      "bawn_rome.txt",
+      "bawn_rome.txt"
+    ],
+    "chunk_distances": [
+      0.2996,
+      0.3587,
+      0.3812,
+      0.3923
+    ],
+    "retrieval_context_len": 1553,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.8333333333333333,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.83 because the first and third nodes in retrieval contexts are ranked higher than the second and fourth nodes, which are irrelevant to the input, as 'This sentence does not provide any relevant information about the cause of the ghostly whispers.'"
+  },
+  {
+    "id": "q18",
+    "input": "Who was behind the ghostly whispers in Rome's Colosseum?",
+    "actual_output": "A disgraced opera singer.",
+    "num_chunks": 4,
+    "chunk_sources": [
+      "bawn_rome.txt",
+      "bawn_rome.txt",
+      "bawn_rome.txt",
+      "bawn_rome.txt"
+    ],
+    "chunk_distances": [
+      0.2996,
+      0.3587,
+      0.3812,
+      0.3923
+    ],
+    "retrieval_context_len": 1553,
+    "metric": "ContextualRecallMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because the expected output partially matches the retrieval context, specifically node(s) in retrieval context, as sentences 1-3 align with the plot of a mystery investigation at the Colosseum and Hypogeum, but sentence 4 deviates from this narrative by introducing hidden speakers and ventriloquism, which is not supported by the previous nodes."
+  },
+  {
+    "id": "q19",
+    "input": "What artifact disappeared from the Tokyo museum?",
+    "actual_output": "A rare katana from the Edo period disappeared from the museum.",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.4445
+    ],
+    "retrieval_context_len": 400,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because the model failed to directly address the question about the missing artifact in the Tokyo museum due to a general fact being mentioned that doesn't pertain to the specific inquiry."
+  },
+  {
+    "id": "q19",
+    "input": "What artifact disappeared from the Tokyo museum?",
+    "actual_output": "A rare katana from the Edo period disappeared from the museum.",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.4445
+    ],
+    "retrieval_context_len": 400,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q19",
+    "input": "What artifact disappeared from the Tokyo museum?",
+    "actual_output": "A rare katana from the Edo period disappeared from the museum.",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.4445
+    ],
+    "retrieval_context_len": 400,
+    "metric": "FaithfulnessMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because there are no contradictions found in the retrieval context, indicating perfect faithfulness between the actual output and the retrieval context."
+  },
+  {
+    "id": "q19",
+    "input": "What artifact disappeared from the Tokyo museum?",
+    "actual_output": "A rare katana from the Edo period disappeared from the museum.",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.4445
+    ],
+    "retrieval_context_len": 400,
+    "metric": "ContextualPrecisionMetric",
+    "score": 1.0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 1.00 because the first node in retrieval contexts is a direct answer to the question and ranks higher than the second node which only provides partial information about the location."
+  },
+  {
+    "id": "q19",
+    "input": "What artifact disappeared from the Tokyo museum?",
+    "actual_output": "A rare katana from the Edo period disappeared from the museum.",
+    "num_chunks": 1,
+    "chunk_sources": [
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.4445
+    ],
+    "retrieval_context_len": 400,
+    "metric": "ContextualRecallMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because there's some relevant information about the source and content related to the case, but no direct match was found for the expected output 'A rare Edo-period katana' in node(s) in retrieval context."
+  },
+  {
+    "id": "q20",
+    "input": "How did the thief steal the katana from the Tokyo museum?",
+    "actual_output": "The thief hacked the museum's environmental control system to warp the seal on the display case, then used a powerful electromagnet to slide the sword out onto a cleaning robot that was also hacked.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_lima.txt",
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.2046,
+      0.2423,
+      0.433,
+      0.455,
+      0.4749
+    ],
+    "retrieval_context_len": 1835,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.6,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.60 because there are two irrelevant statements in the actual output that detract from its relevance to addressing how the thief stole the katana, specifically describing an unrelated event with a cleaning robot and mentioning something already covered in previous statements."
+  },
+  {
+    "id": "q20",
+    "input": "How did the thief steal the katana from the Tokyo museum?",
+    "actual_output": "The thief hacked the museum's environmental control system to warp the seal on the display case, then used a powerful electromagnet to slide the sword out onto a cleaning robot that was also hacked.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_lima.txt",
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.2046,
+      0.2423,
+      0.433,
+      0.455,
+      0.4749
+    ],
+    "retrieval_context_len": 1835,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q20",
+    "input": "How did the thief steal the katana from the Tokyo museum?",
+    "actual_output": "The thief hacked the museum's environmental control system to warp the seal on the display case, then used a powerful electromagnet to slide the sword out onto a cleaning robot that was also hacked.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_lima.txt",
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.2046,
+      0.2423,
+      0.433,
+      0.455,
+      0.4749
+    ],
+    "retrieval_context_len": 1835,
+    "metric": "FaithfulnessMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because the actual output contains a contradiction that suggests the thief may have been caught on camera despite claims of hacking, indicating some level of faithfulness to the retrieval context."
+  },
+  {
+    "id": "q20",
+    "input": "How did the thief steal the katana from the Tokyo museum?",
+    "actual_output": "The thief hacked the museum's environmental control system to warp the seal on the display case, then used a powerful electromagnet to slide the sword out onto a cleaning robot that was also hacked.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_lima.txt",
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.2046,
+      0.2423,
+      0.433,
+      0.455,
+      0.4749
+    ],
+    "retrieval_context_len": 1835,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.9166666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.92 because the retrieval contexts ranked relevant nodes (1st and 2nd) higher than irrelevant ones (3rd and 4th), with the 3rd node being about a different case in Lima, Peru, and the 4th node providing new information but not directly addressing how the katana was stolen."
+  },
+  {
+    "id": "q20",
+    "input": "How did the thief steal the katana from the Tokyo museum?",
+    "actual_output": "The thief hacked the museum's environmental control system to warp the seal on the display case, then used a powerful electromagnet to slide the sword out onto a cleaning robot that was also hacked.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_lima.txt",
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.2046,
+      0.2423,
+      0.433,
+      0.455,
+      0.4749
+    ],
+    "retrieval_context_len": 1835,
+    "metric": "ContextualRecallMetric",
+    "score": 0.6,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.60 because sentences 1 and 2 are attributed to node(s) in retrieval context due to matching descriptions, but sentence 3 has no unsupportive reason, implying it's also attributed correctly."
+  },
+  {
+    "id": "q21",
+    "input": "How did Mr. Bawn recover the katana in Tokyo?",
+    "actual_output": "Mr. Bawn recovered the katana by challenging a young hacker to a game of Go at a gaming cafe in Akihabara, and after winning with checkmate in five moves, the thief returned the sword before dawn.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.2548,
+      0.273,
+      0.3288,
+      0.4158,
+      0.4338
+    ],
+    "retrieval_context_len": 1677,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.5,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.50 because two statements made about checkmate and a different activity are irrelevant to recovering the katana."
+  },
+  {
+    "id": "q21",
+    "input": "How did Mr. Bawn recover the katana in Tokyo?",
+    "actual_output": "Mr. Bawn recovered the katana by challenging a young hacker to a game of Go at a gaming cafe in Akihabara, and after winning with checkmate in five moves, the thief returned the sword before dawn.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.2548,
+      0.273,
+      0.3288,
+      0.4158,
+      0.4338
+    ],
+    "retrieval_context_len": 1677,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q21",
+    "input": "How did Mr. Bawn recover the katana in Tokyo?",
+    "actual_output": "Mr. Bawn recovered the katana by challenging a young hacker to a game of Go at a gaming cafe in Akihabara, and after winning with checkmate in five moves, the thief returned the sword before dawn.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.2548,
+      0.273,
+      0.3288,
+      0.4158,
+      0.4338
+    ],
+    "retrieval_context_len": 1677,
+    "metric": "FaithfulnessMetric",
+    "score": 0.0,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.00 because the actual output contains contradictions: Mr. Bawn's challenge method (game at home vs gaming cafe) and win condition (checkmate in five moves vs unspecified outcome)."
+  },
+  {
+    "id": "q21",
+    "input": "How did Mr. Bawn recover the katana in Tokyo?",
+    "actual_output": "Mr. Bawn recovered the katana by challenging a young hacker to a game of Go at a gaming cafe in Akihabara, and after winning with checkmate in five moves, the thief returned the sword before dawn.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.2548,
+      0.273,
+      0.3288,
+      0.4158,
+      0.4338
+    ],
+    "retrieval_context_len": 1677,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.7555555555555555,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.76 because the first relevant node (ranked 1) clearly addresses the question, but subsequent irrelevant nodes (ranks 2 and 4) are ranked lower due to lack of new information, while other relevant nodes (ranks 3 and 5) provide valuable details about Mr. Bawn's recovery process."
+  },
+  {
+    "id": "q21",
+    "input": "How did Mr. Bawn recover the katana in Tokyo?",
+    "actual_output": "Mr. Bawn recovered the katana by challenging a young hacker to a game of Go at a gaming cafe in Akihabara, and after winning with checkmate in five moves, the thief returned the sword before dawn.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt",
+      "bawn_tokyo.txt"
+    ],
+    "chunk_distances": [
+      0.2548,
+      0.273,
+      0.3288,
+      0.4158,
+      0.4338
+    ],
+    "retrieval_context_len": 1677,
+    "metric": "ContextualRecallMetric",
+    "score": 0.6,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.60 because the retrieval context accurately captured key events, such as Bawn challenging the hacker to a game of Go (node(s) in retrieval context), but failed to fully replicate some details, like the exact location and the outcome of the game."
+  },
+  {
+    "id": "q22",
+    "input": "What clue did Mr. Bawn find near the west gate of Buckingham Palace?",
+    "actual_output": "A half-eaten sandwich with cucumber and marmite.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_paris.txt",
+      "bawn_london.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.3368,
+      0.417,
+      0.4624,
+      0.4721,
+      0.4764
+    ],
+    "retrieval_context_len": 1940,
+    "metric": "AnswerRelevancyMetric",
+    "score": 0.3333333333333333,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.33 because there are two statements in the actual output that have no relation to the clue found by Mr. Bawn near Buckingham Palace, which makes it difficult for the model to accurately address the question."
+  },
+  {
+    "id": "q22",
+    "input": "What clue did Mr. Bawn find near the west gate of Buckingham Palace?",
+    "actual_output": "A half-eaten sandwich with cucumber and marmite.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_paris.txt",
+      "bawn_london.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.3368,
+      0.417,
+      0.4624,
+      0.4721,
+      0.4764
+    ],
+    "retrieval_context_len": 1940,
+    "metric": "ToxicityMetric",
+    "score": 0,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.00 because there are no reasons to suggest toxicity."
+  },
+  {
+    "id": "q22",
+    "input": "What clue did Mr. Bawn find near the west gate of Buckingham Palace?",
+    "actual_output": "A half-eaten sandwich with cucumber and marmite.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_paris.txt",
+      "bawn_london.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.3368,
+      0.417,
+      0.4624,
+      0.4721,
+      0.4764
+    ],
+    "retrieval_context_len": 1940,
+    "metric": "FaithfulnessMetric",
+    "score": 0.6666666666666666,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.67 because the actual output partially aligns with the retrieval context, as it omits details about the half-eaten sandwich and marmite, but still includes information about the location near the west gate."
+  },
+  {
+    "id": "q22",
+    "input": "What clue did Mr. Bawn find near the west gate of Buckingham Palace?",
+    "actual_output": "A half-eaten sandwich with cucumber and marmite.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_paris.txt",
+      "bawn_london.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.3368,
+      0.417,
+      0.4624,
+      0.4721,
+      0.4764
+    ],
+    "retrieval_context_len": 1940,
+    "metric": "ContextualPrecisionMetric",
+    "score": 0.7555555555555555,
+    "threshold": 0.5,
+    "passed": true,
+    "reason": "The score is 0.76 because the relevant nodes (1st: The text clearly states that Mr. Bawn found a half-eaten sandwich near the west gate of Buckingham Palace., 3rd: The text describes Mr. Bawn investigating the kidnapping of the Queen's Corgi, which is related to the west gate of Buckingham Palace., 5th: The text describes Mr. Bawn confronting the perpetrator, which is related to the case involving the kidnapped Corgi at the west gate of Buckingham Palace.) are ranked higher than irrelevant nodes (2nd: This document does not mention anything about a cucumber and marmite sandwich., 4th: This document mentions a bakery in Paris and does not relate to the west gate of Buckingham Palace or a cucumber and marmite sandwich.)."
+  },
+  {
+    "id": "q22",
+    "input": "What clue did Mr. Bawn find near the west gate of Buckingham Palace?",
+    "actual_output": "A half-eaten sandwich with cucumber and marmite.",
+    "num_chunks": 5,
+    "chunk_sources": [
+      "bawn_london.txt",
+      "bawn_london.txt",
+      "bawn_paris.txt",
+      "bawn_london.txt",
+      "bawn_paris.txt"
+    ],
+    "chunk_distances": [
+      0.3368,
+      0.417,
+      0.4624,
+      0.4721,
+      0.4764
+    ],
+    "retrieval_context_len": 1940,
+    "metric": "ContextualRecallMetric",
+    "score": 0.42857142857142855,
+    "threshold": 0.5,
+    "passed": false,
+    "reason": "The score is 0.43 because although the retrieval context mentions a specific combination of cucumber and marmite that Bawn sniffed (1st node), it also fails to provide any information about the sandwich being made or consumed, which is present in the expected output."
+  }
+]
