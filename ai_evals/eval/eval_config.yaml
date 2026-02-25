@@ -1,6 +1,5 @@
 judge:
   provider: ollama
-  model: llama3.1:8b              # swap to phi4, mistral, gemma3 as needed
   base_url: http://localhost:11434
 
 metrics:

@@ -36,7 +36,7 @@ class RagEngine:
                 ],
             )
 
-        self._ollama_model = os.environ.get("OLLAMA_MODEL", "llama3.1:8b")
+        self._ollama_model = os.environ["OLLAMA_MODEL"]
 
     def health_check(self):
         """Verify Weaviate is reachable."""

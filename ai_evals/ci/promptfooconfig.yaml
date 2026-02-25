@@ -1,0 +1,14 @@
+name: promptfoo-ci
+on: pull_request:
+    paths:
+        - "ci/promptfooconfig.yaml"
+        - "harness/**"
+        - "rubrics/**"
+jobs:
+    eval:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+            - run: npm i -g promptfoo
+            - run: promptfoo eval -c ci/promptfooconfig.yaml --format junit --output ./reports/latest

@@ -2,6 +2,7 @@
 pytest conftest — wires OllamaModel into deepeval globally.
 Imported automatically by pytest before any test module.
 """
+import os
 import yaml
 import pytest
 from deepeval.models import OllamaModel
@@ -11,7 +12,7 @@ with open(_config_path) as _f:
     _cfg = yaml.safe_load(_f)
 
 judge_model = OllamaModel(
-    model=_cfg["judge"]["model"],
+    model=os.environ["OLLAMA_MODEL"],
     base_url=_cfg["judge"]["base_url"],
 )
 

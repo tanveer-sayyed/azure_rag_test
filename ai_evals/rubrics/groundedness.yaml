@@ -1,0 +1,7 @@
+name: groundedness
+instructions: >
+    Score 0-1 whether the answer strictly uses the provided contexts, citing them implicitly. Penalize added claims not supported in context.
+scale:
+    min: 0
+    max: 1
+aggregation: mean

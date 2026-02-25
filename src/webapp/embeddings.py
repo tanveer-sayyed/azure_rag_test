@@ -3,7 +3,6 @@ import os
 import ollama
 from sentence_transformers import SentenceTransformer
 
-_OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.1:8b")
 _EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 _CHUNK_SIZE = 300
 
@@ -48,7 +47,7 @@ def split_chunks(text: str, size: int = _CHUNK_SIZE) -> list[str]:
 def contextualize_chunk(document: str, chunk: str) -> str:
     """Prepend an Ollama-generated situating context to the chunk."""
     response = ollama.chat(
-        model=_OLLAMA_MODEL,
+        model=os.environ["OLLAMA_MODEL"],
         messages=[{"role": "user", "content": _CONTEXT_PROMPT.format(document=document, chunk=chunk)}],
     )
     context = response.message.content.strip()

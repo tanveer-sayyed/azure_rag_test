@@ -1,12 +1,13 @@
 import os
 import logging
+import pathlib
 from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse, JSONResponse, Response
 from fastapi.templating import Jinja2Templates
-from rag_engine import RagEngine
+from .rag_engine import RagEngine
 
 app = FastAPI()
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory=pathlib.Path(__file__).parent / "templates")
 logger = logging.getLogger(__name__)
 
 _startup_error: Exception | None = None

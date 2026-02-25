@@ -113,6 +113,7 @@ def test_case(case: dict, report_collector):
         report_collector.append({
             "id": case["id"],
             "input": case["input"],
+            "expected_output": case.get("expected_output", ""),
             "actual_output": result["output"],
             "num_chunks": result.get("num_chunks", 0),
             "chunk_sources": result.get("chunk_sources", []),
